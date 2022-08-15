@@ -1,5 +1,7 @@
 package com.microservice.SQSToLambdaToSES;
 
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.simpleemail.AmazonSimpleEmailService;
@@ -19,7 +21,7 @@ public class SqsToLambdaToSesApplication {
 	@Bean
 	public AmazonSimpleEmailService amazonSimpleEmailServiceClient() {
 		return AmazonSimpleEmailServiceClientBuilder.standard()
-				.withCredentials(new ProfileCredentialsProvider("pratikpoc"))
+				.withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials("AKIAWZPNMDCGKFVMH6YF", "CO5T8Ot9WePSRU8rDnV8mh4KMbUc5+L14VeYsJX4")))
 				.withRegion(Regions.US_EAST_1)
 				.build();
 	}
